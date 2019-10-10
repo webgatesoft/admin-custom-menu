@@ -66,7 +66,7 @@ class AddCustomMenuAdmin extends Action
             'url' => $this->getUrl('webgate_custommenu/custommenu/edit', [
                 'entity_id' => $id->getId()
             ]),
-            'title' => __('Your menu has been added. Want to edit ?')
+            'title' => __('Your menu has been added.do you want to edit it?')
         ]);
     }
 

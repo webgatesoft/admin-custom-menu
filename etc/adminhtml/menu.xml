@@ -10,7 +10,7 @@
              parent="WebGate_WebGateBase::webgatebase"
         />
 
-        <add title="Custom Menu"
+        <add title="manage Custom Menu"
              id="WebGate_CustomMenu::custommenu"
              parent="WebGate_CustomMenu::wegbgate"
              module="WebGate_CustomMenu"
