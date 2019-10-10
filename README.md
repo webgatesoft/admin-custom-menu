@@ -50,4 +50,4 @@ Position 2 : postion of menu right or left
 
 ```
 
-[WebGate Soft](webgatesoft.com)
+[WebGate Soft](https://webgatesoft.com)
