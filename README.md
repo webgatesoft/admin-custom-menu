@@ -1,7 +1,8 @@
-##installation
+# installation
+
 composer require "webgate/module-custom-menu":"*"
 
-###server installation
+### server installation
 ```
 cd root project 
 php bin/magento setup:upgrade #create table and update database
@@ -9,7 +10,8 @@ php bin/magento setup:di:compile #create dependence and generate code
 php bin/magento setup:static-content -f en_US #or any local like en_GB for UK (generate static file like css and js )
 php bin/magento c:f #clear cache
 ```
-#document (how to use)
+# document (how to use)
+
 <img src="https://raw.githubusercontent.com/webgatesoft/admin-custom-menu/master/img/1.png" alt='webgate-soft-1'>
 
 ```
@@ -32,7 +34,7 @@ target : defines how a link should opened
 
 
 ```
-###custom menu config
+### custom menu config
 <img   src="https://raw.githubusercontent.com/webgatesoft/admin-custom-menu/master/img/4.png" alt='webgate-soft-4'>
 
 ```go to  webgate > WebGate Custom menu > setting```
