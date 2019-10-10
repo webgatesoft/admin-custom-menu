@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="webgate_custommenu_custommenu_grid_collection_load_before">
+        <observer name="model_custom_menu" instance="\WebGate\CustomMenu\Observer\ModelCustomMenu" />
+    </event>
+</config>

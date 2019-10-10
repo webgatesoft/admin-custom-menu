@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <custom_menu>
+            <custom_menu>
+                <enable>1</enable>
+                <position_1>bottom</position_1>
+                <position_2>right</position_2>
+                <different_menu_admin>1</different_menu_admin>
+            </custom_menu>
+        </custom_menu>
+    </default>
+</config>

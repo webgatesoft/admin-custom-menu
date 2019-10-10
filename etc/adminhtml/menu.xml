@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+
+        <add title="WebGate Custom menu"
+             id="WebGate_CustomMenu::wegbgate"
+             module="WebGate_CustomMenu"
+             sortOrder="10"
+             resource="WebGate_CustomMenu::custommenu"
+             parent="WebGate_WebGateBase::webgatebase"
+        />
+
+        <add title="Custom Menu"
+             id="WebGate_CustomMenu::custommenu"
+             parent="WebGate_CustomMenu::wegbgate"
+             module="WebGate_CustomMenu"
+             sortOrder="10"
+             action="webgate_custommenu/custommenu"
+             resource="WebGate_CustomMenu::custommenu"
+        />
+        <add title="Setting"
+             id="WebGate_CustomMenu::custommenu_setting"
+             parent="WebGate_CustomMenu::wegbgate"
+             module="WebGate_CustomMenu"
+             sortOrder="11"
+             action="admin/system_config/edit/section/custom_menu"
+             resource="WebGate_CustomMenu::custommenu"
+        />
+
+    </menu>
+</config>

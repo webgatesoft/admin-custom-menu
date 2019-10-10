@@ -1,0 +1,208 @@
+<?php /** @var $block \WebGate\CustomMenu\Block\Adminhtml\CustomMenu */ ?>
+<?php $pos= 'pos_'.$block->getDataHelper()->getPosition1().'_'.$block->getDataHelper()->getPosition2() ?>
+
+<div id="custom_menu" class="fa fa-ellipsis-v <?= $pos ?>"></div>
+<div id="custom_menu_body" class="<?= $pos ?>" data-hidden="1">
+
+    <div id="addCustomMenuAdmin">
+        <span class="icon fa fa-plus"></span>
+        <span><?= __('add current link to menu') ?></span>
+    </div>
+
+
+    <?php foreach ($block->getLinks() as $link) { ?>
+        <a target="<?= $link['target'] ?>" href="<?= $block->get_Url($link['link']) ?>">
+            <span class="icon <?= $link['icon'] ?>"></span>
+            <span><?= $link['title'] ?></span>
+        </a>
+    <?php } ?>
+
+</div>
+
+
+<script type="text/javascript">
+    require(
+        ['jquery'],
+        function ($) {
+            $(function () {
+
+                $(document).on('click','#custom_menu',function () {
+                   var h =$('#custom_menu_body').attr('data-hidden') == '1' ? 0 : 1;
+                    $('#custom_menu_body').attr('data-hidden',h)
+                });
+
+                $(document).on('click','#addCustomMenuAdmin',function () {
+                    $('.message_custom_menu_body').html('please wait');
+                    $.ajax({
+                        type: 'POST',
+                        url: "<?= $block->getUrl("webgate_custommenu/ajax/AddCustomMenuAdmin"); ?>",
+                        data: {
+                            link: '<?= $block->getUrlAdmin() ?>',
+                            title: '<?= $block->getTitle() ?>',
+                        },
+                        success: function (data) {
+
+                            $m = confirm(data.title);
+                            if ($m)
+                            {
+                                window.location = data.url;
+                            }
+                        }
+                    });
+
+                });
+            });
+        });
+</script>
+
+
+
+<style>
+    div#custom_menu.pos_top_right {
+        bottom: auto;
+        top: 20px;
+        left: auto;
+        right: 20px;
+    }
+
+    div#custom_menu_body.pos_top_right[data-hidden="0"] {
+        top: 70px;
+        bottom: auto;
+        left: auto;
+        right: 20px;
+    }
+
+    div#custom_menu_body.pos_top_right{
+        top: 70px;
+        bottom: auto;
+        left: auto;
+        right: -280px;
+    }
+
+
+    div#custom_menu.pos_top_left {
+        bottom: auto;
+        top: 20px;
+        left: 20px ;
+        right: auto;
+    }
+
+    div#custom_menu_body.pos_top_left[data-hidden="0"] {
+        top: 70px;
+        bottom: auto;
+        left: 20px ;
+        right: auto;
+    }
+
+    div#custom_menu_body.pos_top_left {
+        left: -280px;
+        right: auto;
+        top: 70px;
+        bottom: auto;
+    }
+
+
+    div#custom_menu.pos_bottom_left {
+        bottom: 20px;
+        top: auto;
+        left: 20px ;
+        right: auto;
+    }
+
+    div#custom_menu_body.pos_bottom_left[data-hidden="0"] {
+        top: auto;
+        bottom: 70px;
+        left: 20px ;
+        right: auto;
+    }
+
+    div#custom_menu_body.pos_bottom_left {
+        left: -280px;
+        right: auto;
+        top: auto;
+        bottom: 70px;
+    }
+
+
+    div#custom_menu {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        padding: 10px 18px;
+        font-size: 25px;
+        background-color: rgb(55, 51, 48);
+        color: #fff;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: .5s all;
+        z-index: 999;
+    }
+
+
+    div#custom_menu_body[data-hidden="0"] {
+        right: 20px;
+        transition: .5s all;
+    }
+
+    div#custom_menu:hover {
+        background-color: rgb(0, 0, 0);
+        transition: .5s all;
+    }
+
+    div#custom_menu_body {
+        z-index: 999;
+        position: fixed;
+        right: -280px;
+        transition: .5s all;
+        bottom: 70px;
+        padding: 5px;
+        border-radius: 2px;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 0 5px #00000026;
+        width: 250px;
+    }
+
+    div#addCustomMenuAdmin {
+        display: block;
+        padding: 10px 5px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+        color: rgb(255, 255, 255);
+        transition: .5s all;
+        border-radius: 50px;
+        margin-bottom: 5px;
+        cursor: pointer;
+        background-color: rgb(84, 84, 84);
+        text-align: center;
+        margin-bottom: 10px;
+        margin-top: 5px;
+    }
+
+    div#addCustomMenuAdmin:hover {
+        background-color: rgb(142, 137, 137);
+    }
+
+    div#custom_menu_body a {
+        display: block;
+        padding: 10px 5px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+        color: rgb(39, 39, 39);
+        transition: .5s all;
+        border-radius: 2px;
+        margin-bottom: 5px;
+    }
+
+    div#custom_menu_body a:hover {
+        text-decoration: none;
+        background-color: rgb(232, 232, 232);
+        transition: .5s all;
+    }
+
+    div#custom_menu_body a:last-child {
+        border-bottom: none;
+    }
+
+    div#custom_menu_body .icon {
+        margin: 0 5px;
+    }
+
+</style>

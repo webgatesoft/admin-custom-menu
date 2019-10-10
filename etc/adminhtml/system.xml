@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+<!--		<tab id="webgate" translate="label" sortOrder="1">-->
+<!--			<label>WebGate</label>-->
+<!--		</tab>-->
+		<section id="custom_menu" translate="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+			<label>Custom Menu</label>
+			<tab>webgate</tab>
+			<resource>WebGate_CustomMenu::system_config</resource>
+
+			<group id="custom_menu" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+				<label>Custom Menu</label>
+
+				<field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Enable in admin</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+
+				<field id="different_menu_admin" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Have a separate menu for each admin?</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+
+				<field id="position_1" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Position 1</label>
+					<source_model>WebGate\CustomMenu\Model\Source\Position1</source_model>
+				</field>
+
+				<field id="position_2" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Position 2</label>
+					<source_model>WebGate\CustomMenu\Model\Source\Position2</source_model>
+				</field>
+
+			</group>
+
+		</section>
+	</system>
+</config>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="WebGate_CustomMenu::css/all.min.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="WebGate\CustomMenu\Block\Adminhtml\CustomMenu" name="custommenu"
+                   ifconfig="custom_menu/custom_menu/enable"
+            />
+        </referenceContainer>
+    </body>
+</page>
